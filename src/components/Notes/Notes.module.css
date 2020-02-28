@@ -1,0 +1,86 @@
+.NotesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    width: 50%;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    box-shadow: -3px 0px 5px 0px #aaa, 3px 0px 5px 0px #aaa;
+    transition: all 1s ease-in-out;
+}
+.SingleNote {
+    /* display: inline-block; */
+    background-color: yellow;
+    width: 40%;
+    height: 150px;
+    border: 1px solid #ccc;
+    margin: 5px 10px;
+    word-break: break-all;
+    position: relative;
+    animation: noteTransition .5s ease-in-out;
+}
+
+.Note {
+    max-height: 100px;
+    padding: 0 20px;
+    overflow: overlay;
+}
+
+.Note::-webkit-scrollbar {
+    width: 5px;
+}
+
+.Note::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #06dee1, #79ff6c);
+}
+
+.Done {
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    color: #aaa;
+    cursor: pointer;
+    border: none;
+}
+
+.Date {
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+}
+
+.Gone {
+    animation: noteGone .5s ease-in-out;
+}
+
+@media (max-width: 800px) {
+    .SingleNote {
+        width: 90%;
+    }
+}
+@media (max-width: 450px) {
+    .Done {
+        width: 100%;
+        
+    }
+    .Date {
+        width: 100%;
+        bottom: 20px;
+    }
+}
+
+@keyframes noteTransition {
+    0% {transform: translateY(-100vh);}
+
+    100% {transform: translateY(0);}
+}
+@keyframes noteGone {
+    0% {transform: translateY(0);}
+
+    100% {transform: translateY(-100vh);}
+}
